@@ -13,10 +13,10 @@ public class ProjectSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authorize)->
                 authorize
-                        .requestMatchers("/api/shop/products").permitAll()
-                        .requestMatchers("/api/shop/categories").authenticated())
-                .httpBasic(Customizer.withDefaults())
-                .formLogin(Customizer.withDefaults());
+                        .requestMatchers("/api/shop/products","/api/shop/categories","/api/shop/brands").permitAll());
+//                        .requestMatchers("/api/shop/categories").authenticated())
+//                .httpBasic(Customizer.withDefaults())
+//                .formLogin(Customizer.withDefaults());
 
         return http.build();
     }
