@@ -10,14 +10,18 @@ import org.springframework.security.web.SecurityFilterChain;
 public class ProjectSecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests((authorize)->
+    public SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
+
+        http.authorizeHttpRequests((authorize) ->
                 authorize
-                        .requestMatchers("/api/shop/products","/api/shop/categories","/api/shop/brands").permitAll());
-//                        .requestMatchers("/api/shop/categories").authenticated())
-//                .httpBasic(Customizer.withDefaults())
-//                .formLogin(Customizer.withDefaults());
+                        .requestMatchers("/api/shop/categories","/api/shop/brands","/api/shop/products","/api/shop/products/**").permitAll())
+                        //.requestMatchers("/api/shop/categories").authenticated());
+                        .httpBasic(Customizer.withDefaults())
+                        .formLogin(Customizer.withDefaults());
+
 
         return http.build();
+
+
     }
 }

@@ -2,6 +2,7 @@ package com.pureamorous.eccommerceresourceserver.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "product")
 @Data
+@NoArgsConstructor
 public class Product {
 
     @Id
